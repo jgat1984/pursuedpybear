@@ -17,9 +17,10 @@ class BaseScene(Scene):
 
     def render(self):
         window = self.engine.display
-        window.fill(self.background_color)
         for group in self.groups.values():
+            group.clear(window,background)
             group.draw(window)
+            
 
     def handle_event(self, event):
         self.callback_map.get(event.type, self.__null__)(event)
