@@ -56,8 +56,7 @@ class GameEngine(Engine):
             time.sleep(.0000000001)
             scene = self.current_scene  # type: Scene
             if scene is None:
-                return
-            self.manage_scene(*scene.change())
+                return self.manage_scene(*scene.change())
             scene.render()  # should return objects that the engine draws.
             pygame.display.update()
             tick = time.time()
