@@ -2,6 +2,7 @@ from collections import defaultdict
 from ppb.abc import Scene
 from pygame import MOUSEBUTTONUP, QUIT
 from pygame.sprite import LayeredDirty
+import pygame 
 
 
 class BaseScene(Scene):
@@ -17,6 +18,7 @@ class BaseScene(Scene):
 
     def render(self):
         window = self.engine.display
+        background=pygame.Surface(window.get_size())
         for group in self.groups.values():
             group.clear(window,background)
             group.draw(window)
